@@ -27,6 +27,13 @@ const InterviewCard = ({interviewId, userId, role , type , techstack , createdAt
             height={90} 
             className="rounded-full object-fit size-[90px]"
           />
+          <h3 className='mt-5 capitalize'>{role} Interview</h3>
+          <div className='flex flex-row gap-5 mt-3'>
+            <div className='flex flex-row gap-2'>
+              <Image src="/calendar.svg" alt='calender' width={22} height={22}/>
+              <p>{formattedDate}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
