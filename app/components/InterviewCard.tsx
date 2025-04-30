@@ -1,6 +1,8 @@
 import React from 'react'
 import dayjs from "dayjs";  
 import { cn, getRandomInterviewCover } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import Image from 'next/image';
 
 const InterviewCard = ({interviewId, userId, role , type , techstack , createdAt} : InterviewCardProps) => {
@@ -33,7 +35,22 @@ const InterviewCard = ({interviewId, userId, role , type , techstack , createdAt
               <Image src="/calendar.svg" alt='calender' width={22} height={22}/>
               <p>{formattedDate}</p>
             </div>
+            <div className='flex flex-row gap-2 items-center'>
+              <Image src="/star.svg" alt='star' width={22} height={22}/>
+              <p>{feedback ?. totalScore || '---'}/100</p>
+            </div>
           </div>
+          <p className='line-clamp-2 mt-5'>
+            {feedback ?.finalAssessment || "You haven't taken an interview yet. Take it now to improve your skills"}
+          </p>
+        </div>
+        <div className='flex flex-row justify-between'>
+          <p>Tech Icons</p>
+          <Button className="btn-primary">
+            <Link href={feedback ? '/interview/${interviewId}/feedback': '/interview/${interviewId}'}>
+            {feedback ? "Check Feedback " : "View Interview"}
+            </Link>
+          </Button>
         </div>
       </div>
     </div>
