@@ -24,3 +24,8 @@ function initFirebaseAdmin() {
 }
 
 export const { auth, db } = initFirebaseAdmin();
+
+// Temporarily add this to your admin.ts file to debug
+console.log("Project ID:", process.env.FIREBASE_PROJECT_ID);
+console.log("Client Email:", process.env.FIREBASE_CLIENT_EMAIL);
+console.log("Private Key exists:", !!process.env.FIREBASE_PRIVATE_KEY);
